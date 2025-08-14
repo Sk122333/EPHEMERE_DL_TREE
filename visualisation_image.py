@@ -5,12 +5,12 @@ import numpy as np
 
 
 # Step 1: Open the png 
-path = "./essai/image0.png"
+path = "./run_v11m_test_1007_thresh_high/new_dataset/images/train/image148.png"
 image = cv2.imread(path)
 image_height, image_width = image.shape[:2]
 
 # Step 2: Read YOLO annotations from a file
-yolo_txt_path = './essai/image0.txt'
+yolo_txt_path = './run_v11m_test_1007_thresh_high/new_dataset/labels/train/image148.txt'
 annotations = []
 
 with open(yolo_txt_path, 'r') as file :
@@ -31,7 +31,7 @@ def yolo_to_pixel(center_x, center_y, bbox_width, bbox_height, img_width, img_he
 fig, ax = plt.subplots(figsize=(15, 15))
 test = image / np.max(image)
 
-brightness_factor = 3  # You can adjust this value for more/less brightness
+brightness_factor = 1  # You can adjust this value for more/less brightness
 bright_image = test * brightness_factor
 
 # Step 3: Clip the pixel values to avoid overflow (ensure values are within [0, 255] for 8-bit images)
